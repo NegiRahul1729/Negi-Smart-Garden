@@ -1,0 +1,975 @@
+/* ============================= */
+/* GLOBAL SETTINGS */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f4;
+    color: #333;
+}
+
+
+/* ============================= */
+/* NAVIGATION BAR */
+/* ============================= */
+
+.navbar {
+    width: 100%;
+    background-color: #174d28;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 8%;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #9be15d;
+}
+
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+
+    min-height: 650px;
+
+    background:
+        linear-gradient(
+            rgba(10, 50, 25, 0.55),
+            rgba(10, 50, 25, 0.55)
+        ),
+        url("images/garden.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-overlay {
+    color: white;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 28px;
+    margin-bottom: 45px;
+}
+
+
+/* Hero Button */
+
+.explore-btn {
+
+    display: inline-block;
+
+    background-color: #207239;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 18px 40px;
+
+    border-radius: 50px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+
+    background-color: #2f9b50;
+
+    transform: scale(1.05);
+}
+
+
+/* ============================= */
+/* ABOUT SECTION */
+/* ============================= */
+
+.about-section {
+
+    padding: 80px 15%;
+
+    text-align: center;
+
+    background-color: white;
+}
+
+.about-section h2 {
+
+    color: #174d28;
+
+    font-size: 42px;
+
+    margin-bottom: 30px;
+}
+
+.about-section p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+
+    color: #555;
+}
+
+
+/* ============================= */
+/* PLANTS SECTION */
+/* ============================= */
+
+.plants-section {
+
+    padding: 80px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(237, 244, 238, 0.95),
+            rgba(237, 244, 238, 0.95)
+        ),
+        url("images/garden.jpeg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.plants-section h2 {
+
+    font-size: 48px;
+
+    color: #174d28;
+
+    margin-bottom: 15px;
+}
+
+.section-description {
+
+    font-size: 20px;
+
+    color: #555;
+
+    margin-bottom: 55px;
+}
+
+
+/* ============================= */
+/* PLANT CARDS */
+/* ============================= */
+
+.plants-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 35px;
+
+    max-width: 1400px;
+
+    margin: auto;
+}
+
+
+.plant-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s;
+}
+
+.plant-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+.plant-card img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+}
+
+
+.plant-info {
+
+    padding: 25px;
+}
+
+.plant-info h3 {
+
+    font-size: 30px;
+
+    color: #174d28;
+
+    margin-bottom: 10px;
+}
+
+.plant-info p {
+
+    color: #666;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* View Details Button */
+
+.details-btn {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    background-color: #207239;
+
+    color: white;
+
+    padding: 13px 28px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    transition: 0.3s;
+}
+
+.details-btn:hover {
+
+    background-color: #145226;
+}
+
+
+/* ============================= */
+/* EXPLORE MORE BUTTON */
+/* ============================= */
+
+.explore-more-container {
+
+    margin-top: 50px;
+}
+
+.explore-more-btn {
+
+    display: inline-block;
+
+    background-color: #174d28;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 18px 45px;
+
+    border-radius: 50px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.explore-more-btn:hover {
+
+    background-color: #2f8f4e;
+
+    transform: translateY(-3px);
+}
+
+
+/* Hidden extra plant cards (shown after clicking Explore More) */
+
+.plant-card.extra-plant {
+
+    display: none;
+
+}
+
+.plant-card.extra-plant.shown {
+
+    display: block;
+
+    animation: fadeInUp 0.5s ease;
+
+}
+
+@keyframes fadeInUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button reset so it matches the anchor style */
+
+button.explore-more-btn {
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    border: none;
+}
+
+
+/* ============================= */
+/* FEATURES SECTION */
+/* ============================= */
+
+.features-section {
+
+    padding: 80px 8%;
+
+    text-align: center;
+
+    background-color: white;
+}
+
+.features-section h2 {
+
+    font-size: 45px;
+
+    color: #174d28;
+
+    margin-bottom: 15px;
+}
+
+
+.features-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1200px;
+
+    margin: 50px auto 0;
+}
+
+
+.feature-card {
+
+    background-color: #f1f7f2;
+
+    padding: 40px 30px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+
+    color: #174d28;
+
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/* CONTACT SECTION */
+/* ============================= */
+
+.contact-section {
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+.contact-card {
+
+    background-color: #f1f7f2;
+
+    max-width: 420px;
+
+    margin: 40px auto 0;
+
+    padding: 45px 30px;
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.contact-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+
+    color: #174d28;
+
+    font-size: 24px;
+
+    margin-bottom: 20px;
+}
+
+.contact-label {
+
+    color: #888;
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.contact-email {
+
+    color: #174d28;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.contact-email:hover {
+
+    text-decoration: underline;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer {
+
+    background-color: #174d28;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 16px;
+}
+
+
+/* ============================= */
+/* MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .plants-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    .navbar nav {
+
+        gap: 15px;
+    }
+
+    .navbar nav a {
+
+        font-size: 16px;
+    }
+
+    .logo {
+
+        font-size: 24px;
+    }
+
+    .plants-container {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+
+        min-height: 550px;
+    }
+
+    .hero h1 {
+
+        font-size: 40px;
+    }
+
+    .hero p {
+
+        font-size: 20px;
+    }
+
+    .plants-section h2 {
+
+        font-size: 38px;
+    }
+
+}
+
+/* ============================= */
+/* PLANT DETAILS PAGE            */
+/* ============================= */
+
+.back-container {
+
+    margin-bottom: 35px;
+
+}
+
+.back-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background-color: white;
+
+    color: #174d28;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    padding: 12px 26px;
+
+    border-radius: 50px;
+
+    border: 2px solid #2f8f4e;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+
+}
+
+.back-btn:hover {
+
+    background-color: #174d28;
+
+    color: white;
+
+    transform: translateX(-4px);
+
+}
+
+.plant-details-container {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 50px 20px;
+
+}
+
+.loading-text,
+.error-text {
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #666;
+
+    padding: 40px 0;
+
+}
+
+.error-text {
+
+    color: #c0392b;
+
+}
+
+.plant-detail-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+    overflow: hidden;
+
+}
+
+.plant-detail-img {
+
+    width: 100%;
+
+    height: 380px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+.plant-detail-info {
+
+    padding: 40px;
+
+}
+
+.plant-detail-info h1 {
+
+    font-size: 38px;
+
+    color: #174d28;
+
+    margin-bottom: 8px;
+
+}
+
+.plant-common-name {
+
+    font-size: 20px;
+
+    color: #555;
+
+    margin-bottom: 4px;
+
+}
+
+.plant-scientific-name {
+
+    font-size: 17px;
+
+    color: #2f8f4e;
+
+    margin-bottom: 30px;
+
+}
+
+.plant-detail-info h2 {
+
+    color: #174d28;
+
+    font-size: 24px;
+
+    margin: 35px 0 12px;
+
+    border-left: 4px solid #2f8f4e;
+
+    padding-left: 12px;
+
+}
+
+/* Info table */
+
+.plant-info-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 10px;
+
+}
+
+.plant-info-table th,
+.plant-info-table td {
+
+    border: 1px solid #e0e0e0;
+
+    padding: 12px 16px;
+
+    text-align: left;
+
+    font-size: 16px;
+
+}
+
+.plant-info-table th {
+
+    background-color: #f0f7f2;
+
+    color: #174d28;
+
+    width: 200px;
+
+}
+
+.plant-info-table tr:nth-child(even) td {
+
+    background-color: #fafcfa;
+
+}
+
+/* Health status badge */
+
+.health-badge {
+
+    display: inline-block;
+
+    padding: 4px 14px;
+
+    border-radius: 50px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+.health-badge.healthy {
+
+    background-color: #d9f2e0;
+
+    color: #1d7a3c;
+
+}
+
+.health-badge.unhealthy {
+
+    background-color: #fde0dc;
+
+    color: #c0392b;
+
+}
+
+/* Benefits list */
+
+.plant-benefits-list {
+
+    padding-left: 22px;
+
+}
+
+.plant-benefits-list li {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #444;
+
+}
+
+/* QR code section on plant details page */
+
+.plant-qr-section {
+
+    margin-top: 36px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border: 2px dashed #2e7d32;
+
+    border-radius: 12px;
+
+    background: #f3faf3;
+
+}
+
+.plant-qr-section h2 {
+
+    border: none;
+
+    margin-bottom: 14px;
+
+}
+
+.plant-qr-img {
+
+    width: 180px;
+
+    height: 180px;
+
+    display: block;
+
+    margin: 0 auto 12px auto;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+}
+
+.plant-qr-text {
+
+    font-size: 15px;
+
+    color: #555;
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .plant-detail-img {
+
+        height: 220px;
+
+    }
+
+    .plant-detail-info {
+
+        padding: 24px;
+
+    }
+
+    .plant-detail-info h1 {
+
+        font-size: 28px;
+
+    }
+
+    .plant-info-table th {
+
+        width: 130px;
+
+    }
+
+}
