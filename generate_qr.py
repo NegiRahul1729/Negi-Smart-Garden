@@ -1,57 +1,75 @@
 """
-Generate an individual QR code for each plant in data/plants.json.
+Generate QR codes for every plant in data/plants.json.
 
-The QR code points to plant.html?id=<plant_id> so a visitor can scan it
-in the garden and instantly open the plant's detail page.
-
-Usage:
-    python generate_qr.py [base_url]
-
-    base_url (optional): e.g. https://yourdomain.github.io
-    If omitted, codes use a relative URL "plant.html?id=..." which works
-    when the site is hosted; you can regenerate with a full URL later.
+Each QR code contains the complete GitHub Pages URL so that it can
+be scanned directly from any mobile phone.
 """
 
 import json
 import os
-import sys
 
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
 
-BASE_URL = sys.argv[1].rstrip("/") if len(sys.argv) > 1 else ""
+
+# Your GitHub Pages website URL
+BASE_URL = "https://negirahul1729.github.io/Negi-Smart-Garden"
+
+# Folder where QR codes will be saved
 OUT_DIR = os.path.join("images", "qr_codes")
 
 
 def main():
-    with open(os.path.join("data", "plants.json"), encoding="utf-8") as f:
-        plants = json.load(f)
+    # Load plant data
+    with open(
+        os.path.join("data", "plants.json"),
+        "r",
+        encoding="utf-8"
+    ) as file:
+        plants = json.load(file)
 
+    # Create QR code folder if it doesn't exist
     os.makedirs(OUT_DIR, exist_ok=True)
 
+    # Generate QR code for each plant
     for plant in plants:
-        # Build the URL the QR should encode
-        if BASE_URL:
-            url = f"{BASE_URL}/plant.html?id={plant['id']}"
-        else:
-            url = f"plant.html?id={plant['id']}"
+        plant_id = plant["id"]
+        plant_name = plant["name"]
 
+        # Create the complete URL
+        url = f"{BASE_URL}/plant.html?id={plant_id}"
+
+        # Create QR code
         qr = qrcode.QRCode(
             version=None,
             error_correction=ERROR_CORRECT_H,
             box_size=10,
             border=4,
         )
+
         qr.add_data(url)
         qr.make(fit=True)
 
-        img = qr.make_image(fill_color="black", back_color="white")
-        out_path = os.path.join(OUT_DIR, f"{plant['id']}_qr.png")
+        # Generate QR image
+        img = qr.make_image(
+            fill_color="black",
+            back_color="white"
+        )
+
+        # Save QR code
+        out_path = os.path.join(
+            OUT_DIR,
+            f"{plant_id}_qr.png"
+        )
+
         img.save(out_path)
 
-        print(f"[OK] {plant['name']:<22} -> {out_path}  ({url})")
+        print(f"[OK] {plant_name} -> {url}")
 
-    print(f"\nGenerated {len(plants)} QR codes in '{OUT_DIR}'.")
+    print("\n========================================")
+    print(f"Successfully generated {len(plants)} QR codes!")
+    print(f"Saved in: {OUT_DIR}")
+    print("========================================")
 
 
 if __name__ == "__main__":
